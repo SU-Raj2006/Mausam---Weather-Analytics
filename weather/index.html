@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Mausam – Weather, every category</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">
+            <div class="brand">Mausam - Weather Analytics</div>
+            <div class="controls">
+                <button class="btn" id="loc" type="button">Use my location</button>
+                <div class="seg" role="group" aria-label="Units">
+                    <button id="uC" aria-pressed="true">°C</button><button id="uF" aria-pressed="false">°F</button>
+                </div>
+            </div>
+        </div>
+
+        <form class="search" id="sf" role="search" autocomplete="off">
+            <input id="q" type="search" placeholder="Search any city, state or country (Patna, Bihar, India) or coordinates (25.6, 85.2)"
+                aria-label="Search location" role="combobox" aria-expanded="false" aria-controls="sug">
+            <button class="btn pri" type="submit">Search</button>
+            <ul class="sug" id="sug" role="listbox" hidden></ul>
+        </form>
+        <div class="msg" id="msg" role="status"></div>
+        <section class="results" id="results" hidden></section>
+
+        <section class="hero" id="hero" aria-live="polite"></section>
+        <div id="alert"></div>
+
+        <nav role="tablist" id="tabs" aria-label="Weather categories"></nav>
+        <section class="panel" id="view" role="tabpanel"></section>
+        <footer id="foot">
+            <div class="fgrid">
+                <div>
+                    <div class="fbrand">Mausam - Weather Analytics</div>
+                    <p>Weather for any place in the world: now, hourly, 7-day, rain, wind, air quality, UV, sun and
+                        moon, pressure, and a location map.</p>
+                    <p class="fstat" id="fstat" role="status"></p>
+                </div>
+                <div>
+                    <h3>Weather categories</h3>
+                    <ul id="fcat"></ul>
+                </div>
+                <div>
+                    <h3>Popular places</h3>
+                    <ul id="fplaces"></ul>
+                </div>
+                <div>
+                    <h3>Options</h3>
+                    <ul>
+                        <li><button class="fl" id="fu" type="button" aria-pressed="false">Show in °F and mph</button>
+                        </li>
+                        <li><button class="fl" id="ft" type="button">Theme: Auto</button></li>
+                        <li><button class="fl" id="floc" type="button">Use my location</button></li>
+                        <li><button class="fl" id="fclr" type="button">Clear map trail</button></li>
+                        <li><button class="fl" id="fflood" type="button">Flood Alerts Status</button></li>
+                        <li><button class="fl" id="fcig" type="button">🚬 Cigarette Weather Status</button></li>
+                        <li><button class="fl" id="fai" type="button">✨ Ask AI Anything</button></li>
+                        <li><button class="fl" id="fcopy" type="button">Copy page link</button></li>
+                        <li><button class="fl" id="fabout" type="button">About Us</button></li>
+                        <li><button class="fl" id="fprivacy" type="button">Privacy Policy</button></li>
+                        <li><button class="fl" id="fcontact" type="button">Contact Us</button></li>
+                        <li><button class="fl" id="ftop" type="button">Back to top</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fbar">
+                <p>Sample data for demonstration. About 208 cities, with their states and countries, are built in; search by city, state or country. Any other place on Earth is looked up
+                    by Claude, with values typical for the place and month, not live readings. Do not use for safety
+                    decisions.</p>
+                <span>© <span id="yr"></span> Mausam</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modalTitle">Title</h3>
+                <button class="modal-close" id="modalClose" type="button">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody">Content goes here...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
